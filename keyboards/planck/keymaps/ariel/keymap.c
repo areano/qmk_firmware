@@ -22,14 +22,14 @@ enum planck_layers {
   _QWERTY,
   _COLEMAK,
   _DVORAK,
+  _RIGHT,
+  _LEFT,
+  _NAV,
+  _NUM,
   _LOWER,
   _RAISE,
   _PLOVER,
-  _ADJUST,
-  _LEFT,
-  _RIGHT,
-  _NAV,
-  _NUM
+  _ADJUST
 };
 
 enum planck_keycodes {
@@ -43,7 +43,6 @@ enum planck_keycodes {
 
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
-#define CONFG MO(_ADJUST)
 #define NUMS MO(_NUM)
 
 #define RS LM(_LEFT, MOD_LSFT)
@@ -214,7 +213,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     XXXXXXX, KC_F9,   KC_F10,  KC_F11,  KC_F12,  XXXXXXX, KC_SLSH, KC_7,    KC_8,    KC_9,    KC_MINS, _______,
     XXXXXXX, KC_F5,   KC_F6,   KC_F7,   KC_F8,   XXXXXXX, KC_ASTR, KC_4,    KC_5,    KC_6,    KC_PLUS, KC_PEQL,
     _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   XXXXXXX, KC_COMM, KC_1,    KC_2,    KC_3,    KC_PDOT, _______,
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, CONFG,   KC_0,    XXXXXXX, XXXXXXX, _______
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, KC_0,    XXXXXXX, XXXXXXX, _______
 )
 };
 
