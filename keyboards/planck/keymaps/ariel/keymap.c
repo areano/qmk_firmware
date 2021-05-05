@@ -49,15 +49,20 @@ enum planck_keycodes {
 #define SYMBL MO(_SYMBL)
 
 #define NAV LT(_NAV, KC_SPC)
-#define RS LSFT_T(KC_QUOT)
-#define LS RSFT_T(KC_GRAVE)
+#define RS RSFT_T(KC_QUOT)
+#define LS LSFT_T(KC_GRAVE)
 #define RA LALT_T(KC_ENT)
-#define LA RALT_T(KC_ESC)
+#define LC LCTL_T(KC_ESC)
 
+#define CKC_A LGUI_T(KC_A)
+#define CKC_S LALT_T(KC_S)
+#define CKC_D LSFT_T(KC_D)
 #define CKC_F LCTL_T(KC_F)
-#define CKC_D LALT_T(KC_D)
+
 #define CKC_J LCTL_T(KC_J)
-#define CKC_K LALT_T(KC_K)
+#define CKC_K LSFT_T(KC_K)
+#define CKC_L LALT_T(KC_L)
+#define CKC_SCLN LGUI_T(KC_SCLN)
 
 #define UNDO KC_UNDO
 #define CUT KC_CUT
@@ -79,8 +84,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_QWERTY] = LAYOUT_planck_grid(
     KC_TAB,   KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
-    LS,       KC_A,    KC_S,    CKC_D,   CKC_F,   KC_G,    KC_H,    CKC_J,   CKC_K,   KC_L,    KC_SCLN, RS,
-    LA,       KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, RA,
+    LS,       CKC_A,   CKC_S,   CKC_D,   CKC_F,   KC_G,    KC_H,    CKC_J,   CKC_K,   CKC_L,   CKC_SCLN,RS,
+    LC,       KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, RA,
     KC_CAPS,  KC_LGUI, XXXXXXX, KC_LCTL, NUMS,    NAV,     NAV,     SYMBL,   KC_LCTL, XXXXXXX, KC_LGUI, XXXXXXX
 ),
 
