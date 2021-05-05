@@ -64,10 +64,11 @@ enum planck_keycodes {
 #define CKC_L LALT_T(KC_L)
 #define CKC_SCLN LGUI_T(KC_SCLN)
 
-#define UNDO KC_UNDO
-#define CUT KC_CUT
-#define COPY KC_COPY
-#define PASTE KC_PASTE
+#define UNDO LCTL(KC_Z)
+#define CUT LCTL(KC_X)
+#define COPY LCTL(KC_C)
+#define PASTE LCTL(KC_V)
+#define REDO LCTL(KC_Y)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -213,7 +214,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [_NAV] = LAYOUT_planck_grid(
-    _______, KC_INS,  XXXXXXX, XXXXXXX, XXXXXXX, KC_PSCR, XXXXXXX, KC_PGUP, KC_UP,   KC_PGDN, XXXXXXX, _______,
+    _______, KC_INS,  XXXXXXX, XXXXXXX, XXXXXXX, KC_PSCR, REDO,    KC_PGUP, KC_UP,   KC_PGDN, XXXXXXX, _______,
     XXXXXXX, KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, XXXXXXX, XXXXXXX, KC_LEFT, KC_DOWN, KC_RGHT, XXXXXXX, KC_DEL,
     _______, UNDO,    CUT,     COPY,    PASTE,   XXXXXXX, XXXXXXX, KC_HOME, XXXXXXX, KC_END,  XXXXXXX, _______,
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
