@@ -39,7 +39,12 @@ enum planck_keycodes {
   DVORAK,
   PLOVER,
   BACKLIT,
-  EXT_PLV
+  EXT_PLV,
+  UNDO,
+  COPY,
+  CUT,
+  PASTE,
+  REDO
 };
 
 #define LOWER MO(_LOWER)
@@ -64,11 +69,6 @@ enum planck_keycodes {
 #define CKC_L LALT_T(KC_L)
 #define CKC_SCLN LGUI_T(KC_SCLN)
 
-#define UNDO LCTL(KC_Z)
-#define CUT LCTL(KC_X)
-#define COPY LCTL(KC_C)
-#define PASTE LCTL(KC_V)
-#define REDO LCTL(KC_Y)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -311,6 +311,52 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       return false;
       break;
+    case COPY:
+        if (record->event.pressed) {
+            register_mods(mod_config(MOD_LCTL));
+            register_code(KC_C);
+        } else {
+            unregister_mods(mod_config(MOD_LCTL));
+            unregister_code(KC_C);
+        }
+        return false;
+    case PASTE:
+        if (record->event.pressed) {
+            register_mods(mod_config(MOD_LCTL));
+            register_code(KC_V);
+        } else {
+            unregister_mods(mod_config(MOD_LCTL));
+            unregister_code(KC_V);
+        }
+        return false;
+    case CUT:
+        if (record->event.pressed) {
+            register_mods(mod_config(MOD_LCTL));
+            register_code(KC_X);
+        } else {
+            unregister_mods(mod_config(MOD_LCTL));
+            unregister_code(KC_X);
+        }
+        return false;
+        break;
+    case UNDO:
+        if (record->event.pressed) {
+            register_mods(mod_config(MOD_LCTL));
+            register_code(KC_Z);
+        } else {
+            unregister_mods(mod_config(MOD_LCTL));
+            unregister_code(KC_Z);
+        }
+        return false;
+    case REDO:
+        if (record->event.pressed) {
+            register_mods(mod_config(MOD_LCTL));
+            register_code(KC_Y);
+        } else {
+            unregister_mods(mod_config(MOD_LCTL));
+            unregister_code(KC_Y);
+        }
+        return false;
   }
   return true;
 }
