@@ -50,8 +50,8 @@ enum planck_keycodes {
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
 
-#define NUMS MO(_NUM)
-#define SYMBL MO(_SYMBL)
+#define NUMS TT(_NUM)
+#define SYMBL TT(_SYMBL)
 
 #define NAV LT(_NAV, KC_SPC)
 #define RS RSFT_T(KC_QUOT)
@@ -68,7 +68,6 @@ enum planck_keycodes {
 #define CKC_K LSFT_T(KC_K)
 #define CKC_L LALT_T(KC_L)
 #define CKC_SCLN LGUI_T(KC_SCLN)
-
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
