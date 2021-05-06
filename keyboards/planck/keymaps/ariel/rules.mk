@@ -1,4 +1,5 @@
 SRC += muse.c
 
-BACKLIGHT_ENABLE = yes		# Switch LEDs
+BACKLIGHT_ENABLE = no		# Switch LEDs
 COMMAND_ENABLE = no
+RGB_MATRIX_ENABLE = no
