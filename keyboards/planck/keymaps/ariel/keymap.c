@@ -43,20 +43,8 @@ enum planck_keycodes {
 #define SYMBL TT(_SYMBL)
 
 #define NAV LT(_NAV, KC_SPC)
-#define RS RSFT_T(KC_QUOT)
-#define LS LSFT_T(KC_GRAVE)
-#define RA LALT_T(KC_ENT)
-#define LC LCTL_T(KC_ESC)
-
-#define CKC_A LGUI_T(KC_A)
-#define CKC_S LALT_T(KC_S)
-#define CKC_D LSFT_T(KC_D)
-#define CKC_F LCTL_T(KC_F)
-
-#define CKC_J LCTL_T(KC_J)
-#define CKC_K LSFT_T(KC_K)
-#define CKC_L LALT_T(KC_L)
-#define CKC_SCLN LGUI_T(KC_SCLN)
+#define RS RSFT_T(KC_ENT)
+#define LS KC_LSFT
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -68,14 +56,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Enter |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Caps | Ctrl | GUI  | Alt  |Lower |    Space    |Raise | Alt  | GUI  | Ctrl |      |
+ * | Caps | GUI  | Alt  | Ctrl |Lower |    Space    |Raise | Ctrl | Alt  | GUI  |      |
  * `-----------------------------------------------------------------------------------'
  */
 [_QWERTY] = LAYOUT_planck_grid(
     KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
     KC_ESC,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
-    KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, RSFT_T(KC_ENT),
-    KC_CAPS, KC_LCTL, KC_LALT, KC_LGUI, NUMS,    NAV,     NAV,     SYMBL,   KC_LGUI, KC_LALT, KC_LCTL, XXXXXXX
+    LS,      KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, RS,
+    KC_CAPS, KC_LGUI, KC_LALT, KC_LCTL, NUMS,    NAV,     NAV,     SYMBL,   KC_LCTL, KC_LALT, KC_LGUI, XXXXXXX
 ),
 
 /* Adjust (Lower + Raise)
@@ -99,7 +87,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_NAV] = LAYOUT_planck_grid(
     _______, KC_INS,  XXXXXXX, XXXXXXX, XXXXXXX, KC_PSCR, REDO,    KC_PGUP, KC_UP,   KC_PGDN, XXXXXXX, _______,
-    XXXXXXX, KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, XXXXXXX, XXXXXXX, KC_LEFT, KC_DOWN, KC_RGHT, XXXXXXX, KC_DEL,
+    XXXXXXX, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX, XXXXXXX, KC_LEFT, KC_DOWN, KC_RGHT, XXXXXXX, KC_DEL,
     _______, UNDO,    CUT,     COPY,    PASTE,   XXXXXXX, XXXXXXX, KC_HOME, XXXXXXX, KC_END,  XXXXXXX, _______,
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
 ),
