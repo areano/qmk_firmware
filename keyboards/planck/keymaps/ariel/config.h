@@ -33,3 +33,5 @@
 // #define PERMISSIVE_HOLD
 
 #define TAPPING_TOGGLE 3
+
+#define TAPPING_TERM_PER_KEY

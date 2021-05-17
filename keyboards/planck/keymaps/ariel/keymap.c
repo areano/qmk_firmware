@@ -37,8 +37,8 @@ enum planck_keycodes {
   REDO
 };
 
-#define LOWER MO(_LOWER)
-#define RAISE MO(_RAISE)
+#define LOWER OSL(_LOWER)
+#define RAISE OSL(_RAISE)
 
 #define NUMS TT(_NUM)
 #define SYMBL TT(_SYMBL)
@@ -46,8 +46,10 @@ enum planck_keycodes {
 
 #define NAV MO(_NAV)
 #define RS RSFT_T(KC_ENT)
-#define LS KC_LSFT
-#define SPACE LT(_NAV, KC_SPC)
+#define LS OSM(MOD_LSFT)
+#define SPACE KC_SPC
+#define BR KC_CAPS
+#define BL TG(_NAV)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -66,7 +68,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
     KC_ESC,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
     LS,      KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, RS,
-    KC_CAPS, KC_LGUI, KC_LALT, KC_LCTL, LOWER,   SPACE,     SPACE,   RAISE,   KC_LCTL, KC_LALT, KC_LGUI, TT(_NUM)
+    BL,      KC_LGUI, KC_LALT, KC_LCTL, LOWER,   SPACE,   SPACE,   RAISE,   KC_LCTL, KC_LALT, KC_LGUI, BR
 ),
 /* Lower
  * ,-----------------------------------------------------------------------------------.
@@ -124,9 +126,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [_NAV] = LAYOUT_planck_grid(
-    _______, KC_INS,  XXXXXXX, XXXXXXX, XXXXXXX, KC_PSCR, REDO,    KC_PGUP, KC_UP,   KC_PGDN, XXXXXXX, _______,
-    XXXXXXX, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX, XXXXXXX, KC_LEFT, KC_DOWN, KC_RGHT, XXXXXXX, KC_DEL,
-    _______, UNDO,    CUT,     COPY,    PASTE,   XXXXXXX, XXXXXXX, KC_HOME, XXXXXXX, KC_END,  XXXXXXX, _______,
+    _______, KC_INS,  XXXXXXX, XXXXXXX, XXXXXXX, KC_PSCR, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
+    XXXXXXX, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX, XXXXXXX, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_DEL,
+    _______, UNDO,    CUT,     COPY,    PASTE,   REDO,    XXXXXXX, KC_HOME, KC_PGDN, KC_PGUP, KC_END,  _______,
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
 ),
 
@@ -213,4 +215,13 @@ void encoder_update(bool clockwise) {
 }
 
 void dip_switch_update_user(uint8_t index, bool active) {
+}
+
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case SPACE:
+            return TAPPING_TERM - 50;
+        default:
+            return TAPPING_TERM;
+    }
 }
