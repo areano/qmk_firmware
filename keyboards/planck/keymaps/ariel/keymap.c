@@ -37,16 +37,15 @@ enum planck_keycodes {
   REDO
 };
 
-#define LOWER OSL(_LOWER)
-#define RAISE OSL(_RAISE)
+#define LOWER MO(_LOWER)
+#define RAISE MO(_RAISE)
 
 #define NUMS TT(_NUM)
 #define SYMBL TT(_SYMBL)
 
-
 #define NAV MO(_NAV)
 #define RS RSFT_T(KC_ENT)
-#define LS OSM(MOD_LSFT)
+#define LS KC_LSFT
 #define SPACE KC_SPC
 #define BR KC_CAPS
 #define BL TG(_NAV)
@@ -61,14 +60,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Enter |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Caps | GUI  | Alt  | Ctrl |Lower |    Space    |Raise | Ctrl | Alt  | GUI  |      |
+ * | Caps | GUI  | Alt  | Ctrl |Lower |    Space    |Raise | Left | Down |  Up  |Right |
  * `-----------------------------------------------------------------------------------'
  */
 [_QWERTY] = LAYOUT_planck_grid(
     KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
     KC_ESC,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
     LS,      KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, RS,
-    BL,      KC_LGUI, KC_LALT, KC_LCTL, LOWER,   SPACE,   SPACE,   RAISE,   KC_LCTL, KC_LALT, KC_LGUI, BR
+    BL,      KC_LGUI, KC_LALT, KC_LCTL, LOWER,   SPACE,   SPACE,   RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
 ),
 /* Lower
  * ,-----------------------------------------------------------------------------------.
@@ -215,13 +214,4 @@ void encoder_update(bool clockwise) {
 }
 
 void dip_switch_update_user(uint8_t index, bool active) {
-}
-
-uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-        case SPACE:
-            return TAPPING_TERM - 50;
-        default:
-            return TAPPING_TERM;
-    }
 }
