@@ -48,7 +48,7 @@ enum planck_keycodes {
 #define LS KC_LSFT
 #define SPACE KC_SPC
 #define BR KC_CAPS
-#define BL TG(_NAV)
+#define BL TT(_NAV)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
