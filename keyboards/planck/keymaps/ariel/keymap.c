@@ -74,16 +74,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * |      | Ins  |      |      |      |PrtSc |      |      |      |      |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |   ~  | GUI  | Alt  | Ctrl | Shift|      |      | Left | Down |  Up  |Right | Del  |
+ * |      | GUI  | Alt  | Ctrl | Shift|      |      | Left | Down |  Up  |Right | Del  |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      | Undo | Cut  | Copy | Paste|      |      | Home |Pg Dn |Pg Up | End  |      |
+ * |      | Undo | Cut  | Copy | Paste| Redo |      | Home |Pg Dn |Pg Up | End  |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |      |      |      |      |             |      |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
  */
 [_LOWER] = LAYOUT_planck_grid(
     _______, KC_INS,  XXXXXXX, XXXXXXX, XXXXXXX, KC_PSCR, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
-    KC_TILD, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX, XXXXXXX, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_DEL,
+    _______, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX, XXXXXXX, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_DEL,
     _______, UNDO,    CUT,     COPY,    PASTE,   REDO,    XXXXXXX, KC_HOME, KC_PGDN, KC_PGUP, KC_END,  _______,
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
 ),
