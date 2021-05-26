@@ -22,6 +22,8 @@ enum planck_layers {
   _QWERTY,
   _LOWER,
   _RAISE,
+  _MOD_L,
+  _MOD_R,
 //   _NUM,
 //   _SYMBL,
 //   _NAV,
@@ -39,6 +41,8 @@ enum planck_keycodes {
 
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
+#define MOD_L MO(_MOD_L)
+#define MOD_R MO(_MOD_R)
 
 // #define NUMS TT(_NUM)
 // #define SYMBL TT(_SYMBL)
@@ -77,8 +81,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_QWERTY] = LAYOUT_planck_grid(
     KC_ESC,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
     KC_TAB,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
-    LS,      KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, RS,
-    KC_CAPS, KC_LGUI, KC_LALT, KC_LCTL, LOWER,   SPACE,   SPACE,   RAISE,   KC_LCTL, KC_LALT, KC_LGUI, XXXXXXX
+    XXXXXXX, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT,
+    KC_CAPS, XXXXXXX, XXXXXXX, MOD_L,   LOWER,   SPACE,   SPACE,   RAISE,   MOD_R,   XXXXXXX, XXXXXXX, XXXXXXX
 ),
 
 /* Lower
@@ -121,6 +125,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_GRV,  MOD_1,   MOD_2,   MOD_3,   MOD_4,   KC_5,    KC_6,    MOD_7,   MOD_8,   MOD_9,   MOD_0,   KC_F11,
     _______, KC_BSLS, KC_LBRC, KC_LPRN, KC_MINS, KC_LT,   KC_GT,   KC_EQL,  KC_RPRN, KC_RBRC, _______, KC_F12,
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
+),
+
+[_MOD_L] = LAYOUT_planck_grid(
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, _______, _______, _______, _______,
+    XXXXXXX, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX, _______, _______, _______, _______, _______, _______,
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, _______, _______, _______, _______,
+    XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, _______, _______, _______, _______, _______, _______, _______
+),
+
+[_MOD_R] = LAYOUT_planck_grid(
+    _______, _______, _______, _______, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    _______, _______, _______, _______, _______, _______, XXXXXXX, KC_RSFT, KC_LCTL, KC_LALT, KC_LGUI, XXXXXXX,
+    _______, _______, _______, _______, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX
 ),
 
 /* Adjust (Lower + Raise)
