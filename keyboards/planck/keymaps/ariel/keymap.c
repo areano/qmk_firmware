@@ -46,9 +46,20 @@ enum planck_keycodes {
 
 #define RS RSFT_T(KC_ENT)
 #define LS KC_LSFT
+
 #define SPACE KC_SPC
 // #define BR KC_CAPS
 // #define BL TT(_NAV)
+
+#define MOD_1 LGUI_T(KC_1)
+#define MOD_2 LALT_T(KC_2)
+#define MOD_3 LCTL_T(KC_3)
+#define MOD_4 LSFT_T(KC_4)
+
+#define MOD_7 RSFT_T(KC_7)
+#define MOD_8 RCTL_T(KC_8)
+#define MOD_9 RALT_T(KC_9)
+#define MOD_0 RGUI_T(KC_0)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -99,10 +110,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |      |      |      |      |      |             |      |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
  */
+// [_RAISE] = LAYOUT_planck_grid(
+//     _______, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    _______,
+//     KC_GRV,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_DEL,
+//     _______, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  _______, _______, _______, KC_BSLS, _______,
+//     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
+// ),
 [_RAISE] = LAYOUT_planck_grid(
-    _______, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    _______,
-    KC_GRV,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_DEL,
-    _______, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  _______, _______, _______, KC_BSLS, _______,
+    _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  _______,
+    KC_GRV,  MOD_1,   MOD_2,   MOD_3,   MOD_4,   KC_5,    KC_6,    MOD_7,   MOD_8,   MOD_9,   MOD_0,   KC_F11,
+    _______, KC_BSLS, KC_LBRC, KC_LPRN, KC_MINS, KC_LT,   KC_GT,   KC_EQL,  KC_RPRN, KC_RBRC, _______, KC_F12,
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
 ),
 
